@@ -1,30 +1,35 @@
 import React from "react";
-
+import "./recipecard.css"
 
 const Recipecard = ({ title, ingredients, calories, image }) => {
 
     return (
-        <div>
-            <div>
+        <div className="card">
+            <div className="container">
                 <h2>{title}</h2>
 
-                <div>
-                    <p>
-                        <h4>Ingredients</h4>
-                        {ingredients.map((ingredient) => (
-                            <ol>
-                                <li>{ingredient.text}</li>
-                            </ol>
-                            
-                        ))}
+                <div className="body">
+                    <div className="text">
+
+                        <div>
+                            <p>
+                                <h4>Ingredients</h4>
+                                {ingredients.map((ingredient) => (
+                                    <ul className="list">
+                                        <li >{ingredient.text}</li>
+                                    </ul>
+
+                                ))}
+                            </p>
+                        </div>
+                    </div>
+                    <p className="img">
+                        <img src={image} alt="" />
                     </p>
+
                 </div>
-
-                <p>
-                    <img src={image} alt="" />
-                </p>
-
             </div>
+            <br />
 
         </div>
     )

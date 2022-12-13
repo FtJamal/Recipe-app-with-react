@@ -2,6 +2,8 @@ import './App.css';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Recipecard from './recipeCard';
+import background from "./assets/backk.jpg";
+
 
 function App() {
 
@@ -40,14 +42,28 @@ function App() {
   const getSearch = (e) => {
     e.preventDefault()
     setQuery(search)
+    setSearch("")
   }
 
   return (
     <div className="App">
+      <div className='nav'>
+        <p>happy cooking</p>
+        
+      </div>
+
+      <div className="top-img">
+        <img className="bg-img" src={background} alt="" />
+        <div className="centered">Family Favourite Recipes</div>
+      </div>
+
+
       <form onSubmit={getSearch} className="search-form">
+        <label className='label'>Search for Recipes</label>
         <input className="search-bar"
           type="text"
           value={search}
+          placeholder="Search..."
           onChange={(e) => {
             console.log(e.target.value)
             setSearch(e.target.value)
